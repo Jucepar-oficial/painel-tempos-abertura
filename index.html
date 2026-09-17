@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Painel de Tempos de Abertura de Empresas da Jucepar">
+  <title>PAINEL DE TEMPOS DE ABERTURA DE EMPRESAS — Jucepar</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-interno">
+      <img src="imagens/jucepar-logo-horizontal.png" alt="Jucepar — Junta Comercial do Paraná">
+      <div>
+        <small>Painel de transparência</small>
+        <h1>Tempos de Abertura de Empresas</h1>
+      </div>
+      <span id="competencia-topo">Julho de 2026</span>
+    </div>
+  </header>
+
+  <main class="pagina">
+    <section class="apresentacao">
+      <div>
+        <b>Painel de acompanhamento</b>
+        <h2>Desempenho dos Tempos para abertura de empresas</h2>
+        <p>Consulte os tempos por período, tipo de órgão, unidade da Federação e município.</p>
+      </div>
+      <aside>
+        <small>Última atualização</small>
+        <strong id="atualizacao">—</strong>
+        <small id="status-dados">Carregando dados</small>
+      </aside>
+    </section>
+
+    <section class="caixa filtros" aria-labelledby="titulo-filtros">
+      <div class="titulo-secao">
+        <div>
+          <h3 id="titulo-filtros">Filtros</h3>
+          <p>Os indicadores e rankings acompanham as seleções abaixo.</p>
+        </div>
+        <div class="acoes-filtros">
+          <button id="gerar-relatorio" class="botao principal" type="button">Gerar relatório mensal (PDF)</button>
+          <button id="limpar" class="botao-link" type="button">Limpar filtros</button>
+        </div>
+      </div>
+      <div class="grade-filtros">
+        <label>Mês de referência<select id="periodo"></select></label>
+        <label>Tipo de órgão<select id="orgao"><option value="TODOS">Todos os órgãos</option></select></label>
+        <label>Unidade da Federação<select id="uf"><option value="BR">Brasil</option></select></label>
+        <label>Município<select id="municipio" disabled><option value="">Todos os municípios</option></select></label>
+      </div>
+    </section>
+
+    <aside id="avisos-periodos" class="aviso-periodos oculto" aria-live="polite"></aside>
+
+    <section id="recorte" class="recorte" aria-live="polite"></section>
+    <section id="indicadores" class="indicadores" aria-live="polite"></section>
+
+    <section class="caixa evolucao-anual" aria-labelledby="titulo-evolucao">
+      <div class="cabecalho-caixa">
+        <div><small>Evolução anual</small><h3 id="titulo-evolucao">Comportamento dos tempos no ano</h3></div>
+        <span id="evolucao-recorte">Segue os filtros selecionados</span>
+      </div>
+      <div id="evolucao-controles" class="evolucao-controles" role="group" aria-label="Indicador apresentado no gráfico"></div>
+      <div id="evolucao-grafico" class="grafico-linha" aria-live="polite"></div>
+      <p id="evolucao-nota" class="nota"></p>
+    </section>
+
+    <div class="duas-colunas">
+      <section class="caixa">
+        <div class="cabecalho-caixa">
+          <div><small>Composição do tempo oficial</small><h3>Etapas da abertura</h3></div>
+          <span>Horas úteis médias</span>
+        </div>
+        <div id="composicao" class="barras"></div>
+      </section>
+      <section class="caixa">
+        <div class="cabecalho-caixa">
+          <div><small>Consulta Prévia</small><h3>Nome, endereço e total</h3></div>
+          <span>CP Total considera a etapa que terminou por último</span>
+        </div>
+        <div id="consulta-previa" class="barras"></div>
+      </section>
+    </div>
+
+    <section class="caixa">
+      <div class="cabecalho-caixa">
+        <div><small>Demanda de acompanhamento</small><h3>Comparativo por tipo de órgão</h3></div>
+        <span>Segue os filtros geográficos</span>
+      </div>
+      <div class="tabela-wrap"><table id="comparativo-orgaos"></table></div>
+    </section>
+
+    <section class="caixa">
+      <div class="cabecalho-caixa">
+        <div><small>Destaques do período</small><h3 id="ranking-titulo">Ranking das unidades da Federação</h3></div>
+        <span id="ranking-info">Menor tempo médio total</span>
+      </div>
+      <div id="ranking-destaques" class="ranking"></div>
+    </section>
+
+    <section class="caixa">
+      <div class="cabecalho-caixa">
+        <div><small>Detalhamento</small><h3 id="tabela-titulo">Resumo por unidade da Federação</h3></div>
+        <div class="acoes-cabecalho">
+          <button id="mostrar-todos-municipios" class="botao oculto" type="button" aria-expanded="false">Mostrar todos os municípios</button>
+          <button id="baixar" class="botao" type="button">Baixar dados filtrados</button>
+        </div>
+      </div>
+      <div class="tabela-wrap"><table id="tabela-detalhes"></table></div>
+      <p id="nota-ranking" class="nota"></p>
+    </section>
+
+    <section class="caixa metodologia">
+      <div><small>Metodologia</small><h3>Como os tempos são calculados</h3></div>
+      <p>O tempo total oficial corresponde à soma da Consulta Prévia Total, da Validação Cadastral e do Tempo de Registro. A Consulta Prévia Total considera o maior tempo entre as consultas de nome e de endereço. Os tempos do usuário não integram o total oficial.</p>
+      <p>Os indicadores são apresentados em horas úteis. Fins de semana, feriados e períodos de exigência são tratados conforme as regras da base divulgada pela Redesim.</p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <span>Fontes: <a href="https://estatistica.redesim.gov.br/tempos-abertura" target="_blank" rel="noopener">Redesim — Estatísticas CNPJ</a> e <a href="https://www.ibge.gov.br/explica/codigos-dos-municipios.php" target="_blank" rel="noopener">IBGE — Municípios</a>.</span>
+    <span>Dados agregados, sem protocolos individuais.</span>
+  </footer>
+
+  <script src="painel.js" defer></script>
+</body>
+</html>

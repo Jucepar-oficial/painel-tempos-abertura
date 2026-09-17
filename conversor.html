@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Conversor mensal do Painel de Tempos de Abertura de Empresas">
+  <title>Conversor mensal — Tempos de Abertura</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="topo"><div class="topo-interno">
+    <img src="imagens/jucepar-logo-horizontal.png" alt="Jucepar">
+    <div><small>Ferramenta institucional</small><h1>Conversor mensal — Tempos de Abertura</h1></div>
+    <a class="botao" href="index.html">Abrir painel</a>
+  </div></header>
+  <main class="conversor">
+    <section class="aviso"><strong>Processamento local</strong><p>A planilha é processada neste navegador e não é enviada à internet. O arquivo gerado contém somente dados agregados, sem os números dos protocolos.</p></section>
+    <section class="caixa passo"><span>1</span><div><h2>Informe a competência</h2><p>Selecione o mês correspondente à data de deferimento dos processos. Estão disponíveis os anos de 2019 a 2026.</p><div class="linha-campos"><label>Ano<input id="conv-ano" type="number" min="2019" max="2026" value="2025"></label><label>Mês<select id="conv-mes"></select></label></div></div></section>
+    <section class="caixa passo"><span>2</span><div><h2>Selecione a planilha</h2><p>Utilize o arquivo mensal publicado pela Redesim. A ferramenta localizará automaticamente a aba <b>dados</b> e os campos necessários.</p><label class="arquivo">Escolher arquivo Excel<input id="conv-arquivo" type="file" accept=".xlsx,.xls"></label> <small id="arquivo-nome">Nenhum arquivo selecionado.</small></div></section>
+    <section class="caixa passo"><span>3</span><div><h2>Selecione a lista atual de períodos</h2><p>Escolha o arquivo <code>dados/manifest.json</code> da versão atual do painel. Ele será atualizado sem excluir os meses já publicados.</p><label class="arquivo">Escolher manifest.json<input id="conv-manifesto" type="file" accept=".json,application/json"></label> <small id="manifesto-nome">Nenhum manifesto selecionado.</small></div></section>
+    <section class="caixa passo"><span>4</span><div><h2>Validar e gerar</h2><p>Serão verificadas a competência, as UFs, os tipos de órgão, as duplicidades e os valores de tempo.</p><button id="conv-gerar" class="botao principal" type="button">Validar planilha</button><div id="conv-resultado" class="resultado oculto"></div></div></section>
+    <section class="caixa"><h2>Depois de gerar</h2><ol><li>Baixe os dois arquivos gerados.</li><li>Publique <code>tempos-AAAA-MM.json</code> na pasta <code>dados</code> do painel.</li><li>Substitua o antigo <code>dados/manifest.json</code> pelo novo arquivo gerado.</li><li>Confirme no painel se todos os períodos continuam disponíveis e confira os resultados da OAB.</li></ol></section>
+  </main>
+  <script src="vendor/xlsx.full.min.js"></script>
+  <script src="conversor.js"></script>
+</body>
+</html>

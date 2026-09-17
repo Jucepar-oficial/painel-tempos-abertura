@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Relatório mensal de tempos de abertura de empresas da Jucepar">
+  <title>Relatório Mensal de Tempos de Abertura - Jucepar</title>
+  <link rel="stylesheet" href="relatorio.css">
+</head>
+<body>
+  <nav class="barra-relatorio" aria-label="Ações do relatório">
+    <div>
+      <strong>Relatório mensal</strong>
+      <span>Confira a prévia e utilize “Salvar em PDF”.</span>
+    </div>
+    <div class="barra-acoes">
+      <button id="voltar" type="button">Voltar ao painel</button>
+      <button id="imprimir" class="principal" type="button">Salvar em PDF</button>
+    </div>
+  </nav>
+  <main id="relatorio" class="relatorio" aria-live="polite">
+    <div class="carregando">Preparando o relatório mensal...</div>
+  </main>
+  <script src="relatorio.js" defer></script>
+</body>
+</html>
