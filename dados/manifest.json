@@ -1,0 +1,36 @@
+{
+  "versao": 2,
+  "atualizadoEm": "16/09/2026",
+  "avisos": [
+    "Os dados de dezembro de 2025 a abril de 2026 não integram o painel devido a inconsistências na contagem dos tempos após a implantação do Módulo de Administração Tributária (MAT).",
+    "Os dados de agosto de 2026 permanecem em validação e ainda não integram o painel."
+  ],
+  "periodos": [
+    { "id": "2024-01", "rotulo": "Janeiro de 2024", "arquivo": "tempos-2024-01.json" },
+    { "id": "2024-02", "rotulo": "Fevereiro de 2024", "arquivo": "tempos-2024-02.json" },
+    { "id": "2024-03", "rotulo": "Março de 2024", "arquivo": "tempos-2024-03.json" },
+    { "id": "2024-04", "rotulo": "Abril de 2024", "arquivo": "tempos-2024-04.json" },
+    { "id": "2024-05", "rotulo": "Maio de 2024", "arquivo": "tempos-2024-05.json" },
+    { "id": "2024-06", "rotulo": "Junho de 2024", "arquivo": "tempos-2024-06.json" },
+    { "id": "2024-07", "rotulo": "Julho de 2024", "arquivo": "tempos-2024-07.json" },
+    { "id": "2024-08", "rotulo": "Agosto de 2024", "arquivo": "tempos-2024-08.json" },
+    { "id": "2024-09", "rotulo": "Setembro de 2024", "arquivo": "tempos-2024-09.json" },
+    { "id": "2024-10", "rotulo": "Outubro de 2024", "arquivo": "tempos-2024-10.json" },
+    { "id": "2024-11", "rotulo": "Novembro de 2024", "arquivo": "tempos-2024-11.json" },
+    { "id": "2024-12", "rotulo": "Dezembro de 2024", "arquivo": "tempos-2024-12.json" },
+    { "id": "2025-01", "rotulo": "Janeiro de 2025", "arquivo": "tempos-2025-01.json" },
+    { "id": "2025-02", "rotulo": "Fevereiro de 2025", "arquivo": "tempos-2025-02.json" },
+    { "id": "2025-03", "rotulo": "Março de 2025", "arquivo": "tempos-2025-03.json" },
+    { "id": "2025-04", "rotulo": "Abril de 2025", "arquivo": "tempos-2025-04.json" },
+    { "id": "2025-05", "rotulo": "Maio de 2025", "arquivo": "tempos-2025-05.json" },
+    { "id": "2025-06", "rotulo": "Junho de 2025", "arquivo": "tempos-2025-06.json" },
+    { "id": "2025-07", "rotulo": "Julho de 2025", "arquivo": "tempos-2025-07.json" },
+    { "id": "2025-08", "rotulo": "Agosto de 2025", "arquivo": "tempos-2025-08.json" },
+    { "id": "2025-09", "rotulo": "Setembro de 2025", "arquivo": "tempos-2025-09.json" },
+    { "id": "2025-10", "rotulo": "Outubro de 2025", "arquivo": "tempos-2025-10.json" },
+    { "id": "2025-11", "rotulo": "Novembro de 2025", "arquivo": "tempos-2025-11.json" },
+    { "id": "2026-05", "rotulo": "Maio de 2026", "arquivo": "tempos-2026-05.json" },
+    { "id": "2026-06", "rotulo": "Junho de 2026", "arquivo": "tempos-2026-06.json" },
+    { "id": "2026-07", "rotulo": "Julho de 2026", "arquivo": "tempos-2026-07.json" }
+  ]
+}
