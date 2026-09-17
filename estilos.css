@@ -280,3 +280,49 @@ select:focus,button:focus-visible{outline:3px solid #61a9d466;outline-offset:2px
 @media (max-width: 460px) {
   .comparacao-ufs { grid-template-columns: repeat(4, minmax(42px, 1fr)); }
 }
+
+
+/* Posições nacionais dos indicadores */
+.indicador-topo {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.indicador .ranking-nacional {
+  max-width: 58%;
+  color: var(--verde);
+  font-size: .72rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: right;
+}
+.indicador.principal .ranking-nacional {
+  color: #d8f6e5;
+}
+.indicador.oab .ranking-nacional {
+  color: var(--oab);
+}
+.comparacao-painel h4 {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.comparacao-painel h4 small {
+  color: #6b7f8b;
+  font-size: .68rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+@media (max-width: 460px) {
+  .indicador-topo {
+    display: block;
+  }
+  .indicador .ranking-nacional {
+    display: block;
+    max-width: none;
+    margin-top: 5px;
+    text-align: left;
+  }
+}
