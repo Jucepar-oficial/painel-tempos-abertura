@@ -203,18 +203,28 @@
 
   function renderizarBarras(linhas) {
     const area = porId("comparacao-barras");
+    const ordemCores = linhas.map(({ uf }) => uf);
     area.innerHTML = metricasBarras.map(([chave, rotulo]) => {
-      const maximo = Math.max(0, ...linhas.map(({ grupo }) => grupo?.metricas?.[chave]?.media || 0));
-      const itens = linhas.map(({ uf, grupo }, indice) => {
+      const ordenadas = [...linhas].sort((a, b) => {
+        const valorA = a.grupo?.metricas?.[chave]?.media;
+        const valorB = b.grupo?.metricas?.[chave]?.media;
+        if (valorA == null && valorB == null) return a.uf.localeCompare(b.uf);
+        if (valorA == null) return 1;
+        if (valorB == null) return -1;
+        return valorA - valorB || a.uf.localeCompare(b.uf);
+      });
+      const maximo = Math.max(0, ...ordenadas.map(({ grupo }) => grupo?.metricas?.[chave]?.media || 0));
+      const itens = ordenadas.map(({ uf, grupo }) => {
         const valor = grupo?.metricas?.[chave]?.media;
         const largura = valor == null || !maximo ? 0 : Math.max(2, (valor / maximo) * 100);
+        const indiceCor = ordemCores.indexOf(uf);
         return `<div class="comparacao-barra-linha${uf === "PR" ? " pr" : ""}">
           <strong>${uf}</strong>
-          <div class="comparacao-trilho"><span style="width:${largura}%;background:${corUf(uf, indice)}"></span></div>
+          <div class="comparacao-trilho"><span style="width:${largura}%;background:${corUf(uf, indiceCor)}"></span></div>
           <em>${valor == null ? "—" : fmtDuracao(valor)}</em>
         </div>`;
       }).join("");
-      return `<article class="comparacao-painel"><h4>${rotulo}</h4>${itens}</article>`;
+      return `<article class="comparacao-painel"><h4>${rotulo}<small>Menor → maior</small></h4>${itens}</article>`;
     }).join("");
   }
 
