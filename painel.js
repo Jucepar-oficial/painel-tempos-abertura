@@ -163,13 +163,42 @@ function renderRecorte(grupo) {
   elemento.innerHTML = `<strong>${tituloRecorte()}</strong><span>${numero(grupo.processos)} processos no período selecionado</span>`;
 }
 
+function posicaoNacional(grupo, chave) {
+  if (estado.uf === "BR" || estado.municipio || !grupo) return null;
+  const valorAtual = chave === "processos" ? Number(grupo.processos) : Number(grupo.metricas?.[chave]?.media);
+  if (!Number.isFinite(valorAtual)) return null;
+
+  const concorrentes = estado.dados.grupos.filter((item) => {
+    if (item.escopo !== "UF" || item.orgao !== estado.orgao || Number(item.processos) <= 0) return false;
+    const valor = chave === "processos" ? Number(item.processos) : Number(item.metricas?.[chave]?.media);
+    return Number.isFinite(valor);
+  });
+
+  const melhores = concorrentes.filter((item) => {
+    const valor = chave === "processos" ? Number(item.processos) : Number(item.metricas[chave].media);
+    return chave === "processos" ? valor > valorAtual : valor < valorAtual;
+  }).length;
+
+  return melhores + 1;
+}
+
+function seloPosicaoNacional(grupo, chave) {
+  const posicao = posicaoNacional(grupo, chave);
+  if (!posicao) return "";
+  const texto = chave === "processos"
+    ? `${posicao}º maior volume nacional`
+    : `Ranking nacional: ${posicao}º`;
+  return `<span class="ranking-nacional" title="Posição entre as UFs com processos no recorte selecionado">${texto}</span>`;
+}
+
 function renderIndicadores(grupo) {
   $("indicadores").innerHTML = metricasCartoes.map(([chave, titulo, principal]) => {
+    const topo = `<div class="indicador-topo"><span>${titulo}</span>${seloPosicaoNacional(grupo, chave)}</div>`;
     if (chave === "processos") {
-      return `<article class="indicador${estado.orgao === "OAB" ? " oab" : ""}"><span>${titulo}</span><strong>${numero(grupo.processos)}</strong><small>Protocolos considerados no recorte</small></article>`;
+      return `<article class="indicador${estado.orgao === "OAB" ? " oab" : ""}">${topo}<strong>${numero(grupo.processos)}</strong><small>Protocolos considerados no recorte</small></article>`;
     }
     const metrica = grupo.metricas[chave];
-    return `<article class="indicador${principal ? " principal" : ""}${estado.orgao === "OAB" && !principal ? " oab" : ""}"><span>${titulo}</span><strong>${duracao(metrica.media)}</strong><small>Média em horas úteis: ${horas(metrica.media)}</small></article>`;
+    return `<article class="indicador${principal ? " principal" : ""}${estado.orgao === "OAB" && !principal ? " oab" : ""}">${topo}<strong>${duracao(metrica.media)}</strong><small>Média em horas úteis: ${horas(metrica.media)}</small></article>`;
   }).join("");
 }
 
