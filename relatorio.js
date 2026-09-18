@@ -113,6 +113,27 @@ function cabecalhoPagina(subtitulo) {
 function rodapePagina(numeroPagina, totalPaginas) {
   return `<footer class="rodape-pagina"><span>Fonte: Redesim - Estatísticas CNPJ · Dados agregados</span><span>${numeroPagina}/${totalPaginas}</span></footer>`;
 }
+function capaRelatorio() {
+  const mes = selecao.periodo.slice(5,7);
+  const recorte = localSelecionado();
+  const orgao = nomesOrgao[selecao.orgao] || selecao.orgao;
+  return `<section class="pagina-relatorio capa-relatorio" style="--capa-fundo:url('imagens/capas/capa-${mes}.svg')">
+    <div class="capa-moldura" aria-hidden="true"></div>
+    <div class="capa-conteudo">
+      <header class="capa-superior"><span>Junta Comercial do Paraná</span><span>Relatório mensal</span></header>
+      <div class="capa-titulo">
+        <small>Painel de transparência</small>
+        <h1><span>Tempo de<br>Abertura de</span><strong>Empresas</strong></h1>
+        <p>${escapar(dadosAtual.rotuloPeriodo)}</p>
+        <div class="capa-recorte"><span>${escapar(recorte)}</span><i></i><span>${escapar(orgao)}</span></div>
+      </div>
+      <footer class="capa-marcas">
+        <img class="capa-logo-jucepar" src="imagens/capas/jucepar-branca.svg" alt="Jucepar — Junta Comercial do Paraná">
+        <div class="capa-governo"><img src="imagens/capas/brasao-parana-branco.svg" alt="Brasão do Estado do Paraná"><span>Governo do Estado<br>do Paraná</span></div>
+      </footer>
+    </div>
+  </section>`;
+}
 function composicaoHtml(grupo) {
   const itens = [["cp_total","Consulta Prévia Total"],["validacao","Validação Cadastral"],["registro","Tempo de Registro"]];
   const maximo = Math.max(...itens.map(([chave]) => grupo.metricas[chave].media), .0001);
@@ -145,7 +166,7 @@ function resumoExecutivo(grupo) {
     </div>
     <table class="resumo-metricas"><thead><tr><th>Indicador</th><th>${escapar(dadosAtual.rotuloPeriodo)}</th><th>Competência anterior</th><th>Variação</th></tr></thead><tbody>${linhasResumo}</tbody></table>
     <div class="aviso-relatorio"><strong>Nota metodológica.</strong> O tempo total oficial corresponde à soma da Consulta Prévia Total, Validação Cadastral e Registro. CP Total considera a etapa que terminou por último entre nome e endereço. Tempos do usuário não integram o total oficial.${avisos ? `<ul>${avisos}</ul>` : ""}</div>
-    ${rodapePagina(1,metricas.length+1)}</section>`;
+    ${rodapePagina(2,metricas.length+2)}</section>`;
 }
 function limitarRanking(lista) {
   if (lista.length <= 27) return lista;
@@ -195,12 +216,12 @@ function paginaMetrica(metrica,indicePagina) {
     ? `Em ${escapar(dadosAtual.rotuloPeriodo)}, ${escapar(localSelecionado())} apresentou o <strong>${ordinal(posicao)} melhor resultado</strong> entre ${universo}, com ${duracao(atual)}. ${anterior==null?"Não há competência imediatamente anterior publicada para comparação.":`Na competência anterior, ocupava a ${ordinal(posicaoAnterior)} posição, com ${duracao(anterior)}; a variação do tempo foi de ${formatarVariacao(delta)}.`}`
     : `Em ${escapar(dadosAtual.rotuloPeriodo)}, o Brasil registrou ${duracao(atual)} neste indicador, considerando ${numero(grupo.processos)} processos.`;
   return `<section class="pagina-relatorio folha-metrica">${cabecalhoPagina(`Tempos médios - ${dadosAtual.rotuloPeriodo}`)}
-    <div class="titulo-pagina"><small>Indicador ${indicePagina-1} de ${metricas.length}</small><h2>${escapar(metrica.titulo)}</h2></div>
+    <div class="titulo-pagina"><small>Indicador ${indicePagina-2} de ${metricas.length}</small><h2>${escapar(metrica.titulo)}</h2></div>
     <p class="descricao-metrica">${escapar(metrica.descricao)}</p>
     <div class="metricas-faixa"><article class="mini-card principal"><span>Resultado atual</span><strong>${duracao(atual)}</strong><small>${escapar(localSelecionado())}</small></article><article class="mini-card"><span>Processos</span><strong>${numero(grupo.processos)}</strong><small>no recorte</small></article><article class="mini-card"><span>Posição atual</span><strong>${posicao?ordinal(posicao):"Brasil"}</strong><small>${posicao?`entre ${universo}`:"referência nacional"}</small></article><article class="mini-card"><span>Variação mensal</span><strong>${formatarVariacao(delta)}</strong><small>${anterior==null?"sem comparação":`anterior: ${duracao(anterior)}`}</small></article></div>
     <p class="narrativa">${narrativa}</p>
     <table class="tabela-ranking"><caption>Ranking de ${escapar(metrica.curto)} - ${escapar(dadosAtual.rotuloPeriodo)}</caption><thead><tr><th>RK</th><th>${selecao.municipio?"Município":"Estado / UF"}</th><th>Tempo médio</th><th>Processos</th><th>${periodoAnterior?escapar(periodoAnterior.rotulo.replace(/ de \d{4}$/,"")):"Mês anterior"}</th></tr></thead><tbody>${linhas}</tbody></table>
-    ${graficoSerie(metrica)}${rodapePagina(indicePagina,metricas.length+1)}</section>`;
+    ${graficoSerie(metrica)}${rodapePagina(indicePagina,metricas.length+2)}</section>`;
 }
 async function iniciar() {
   manifest=await carregarJson(`dados/manifest.json?v=${Date.now()}`);
@@ -220,7 +241,7 @@ async function iniciar() {
     dadosAnterior=serieAnual.get(periodoAnterior.id) || await carregarDados(periodoAnterior);
   }
   document.title=`Relatório Tempos de Abertura - ${selecao.periodo} - ${selecao.municipio||selecao.uf}`;
-  $("relatorio").innerHTML=resumoExecutivo(grupo)+metricas.map((metrica,indice)=>paginaMetrica(metrica,indice+2)).join("");
+  $("relatorio").innerHTML=capaRelatorio()+resumoExecutivo(grupo)+metricas.map((metrica,indice)=>paginaMetrica(metrica,indice+3)).join("");
 }
 
 $("imprimir").addEventListener("click",()=>window.print());
