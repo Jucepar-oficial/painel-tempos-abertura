@@ -7,6 +7,11 @@
   ],
   "periodos": [
     {
+      "id": "2023-06",
+      "rotulo": "Junho de 2023",
+      "arquivo": "tempos-2023-06.json"
+    },
+    {
       "id": "2023-07",
       "rotulo": "Julho de 2023",
       "arquivo": "tempos-2023-07.json"
