@@ -1,9 +1,8 @@
 {
   "versao": 2,
-  "atualizadoEm": "25/09/2026",
+  "atualizadoEm": "01/10/2026",
   "avisos": [
-    "Os dados de dezembro de 2025 a abril de 2026 não integram o painel devido a inconsistências na contagem dos tempos após a implantação do Módulo de Administração Tributária (MAT).",
-    "Os dados de agosto de 2026 permanecem em validação e ainda não integram o painel."
+    "Os dados de dezembro de 2025 a abril de 2026 não integram o painel devido a inconsistências na contagem dos tempos após a implantação do Módulo de Administração Tributária (MAT)."
   ],
   "periodos": [
     {
@@ -195,6 +194,11 @@
       "id": "2026-07",
       "rotulo": "Julho de 2026",
       "arquivo": "tempos-2026-07.json"
+    },
+    {
+      "id": "2026-08",
+      "rotulo": "Agosto de 2026",
+      "arquivo": "tempos-2026-08.json"
     }
   ]
 }
