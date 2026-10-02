@@ -94,6 +94,7 @@ async function carregarManifesto() {
   await carregarPeriodo();
 }
 
+
 async function carregarPeriodo() {
   const item = estado.manifest.periodos.find((periodo) => periodo.id === estado.periodo);
   if (!item) throw new Error("Período não encontrado.");
@@ -440,7 +441,46 @@ function baixarCsv() {
   link.click();
   URL.revokeObjectURL(link.href);
 }
+function elementoTelaCheia() {
+  return document.fullscreenElement || document.webkitFullscreenElement;
+}
 
+async function alternarTelaCheia() {
+  try {
+    if (!elementoTelaCheia()) {
+      const pagina = document.documentElement;
+      const entrar = pagina.requestFullscreen || pagina.webkitRequestFullscreen;
+
+      if (!entrar) {
+        throw new Error("O navegador não oferece suporte ao modo de tela cheia.");
+      }
+
+      await entrar.call(pagina);
+    } else {
+      const sair = document.exitFullscreen || document.webkitExitFullscreen;
+
+      if (sair) {
+        await sair.call(document);
+      }
+    }
+  } catch (erro) {
+    console.error(erro);
+
+    alert(
+      "O navegador bloqueou a tela cheia dentro do iframe. " +
+      "Use o botão “Abrir em nova janela” e tente novamente."
+    );
+  }
+}
+
+function atualizarBotaoTelaCheia() {
+  const botao = $("tela-cheia");
+  if (!botao) return;
+
+  const ativo = Boolean(elementoTelaCheia());
+  botao.textContent = ativo ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  botao.setAttribute("aria-pressed", String(ativo));
+}
 function conectarEventos() {
   $("periodo").addEventListener("change", async (event) => { estado.periodo = event.target.value; await carregarPeriodo(); });
   $("orgao").addEventListener("change", (event) => { estado.orgao = event.target.value; estado.mostrarTodosMunicipios = false; preencherMunicipios(); atualizarPainel(); });
@@ -450,6 +490,17 @@ function conectarEventos() {
   $("mostrar-todos-municipios").addEventListener("click", () => { estado.mostrarTodosMunicipios = !estado.mostrarTodosMunicipios; atualizarPainel(); });
   $("baixar").addEventListener("click", baixarCsv);
   $("gerar-relatorio").addEventListener("click", abrirRelatorio);
+  $("tela-cheia").addEventListener("click", alternarTelaCheia);
+
+document.addEventListener(
+  "fullscreenchange",
+  atualizarBotaoTelaCheia
+);
+
+document.addEventListener(
+  "webkitfullscreenchange",
+  atualizarBotaoTelaCheia
+);
   $("evolucao-controles").addEventListener("click", (event) => {
     const botao = event.target.closest?.("button[data-metrica]");
     if (!botao) return;
