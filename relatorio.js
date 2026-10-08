@@ -107,13 +107,12 @@ async function carregarJson(caminho) {
 async function carregarDados(item) {
   return carregarJson(`dados/${item.arquivo}?v=${manifest.versao}`);
 }
-function cabecalhoPagina(subtitulo) {
+function cabecalhoPagina() {
   return `<header class="cabecalho-relatorio">
     <div class="identificacao">
       <small>Estado do Paraná</small>
       <small>Secretaria da Indústria, Comércio e Serviços - SEIC</small>
       <small>Junta Comercial do Paraná</small>
-      <strong>${escapar(subtitulo)}</strong>
     </div>
     <div class="marcas-relatorio">
       <img class="marca-jucepar" src="imagens/jucepar-logo-horizontal.png" alt="Jucepar — Junta Comercial do Paraná">
@@ -162,7 +161,7 @@ function resumoExecutivo(grupo) {
     const anterior = encontrarGrupo(dadosAnterior)?.metricas?.[metrica.chave]?.media ?? null;
     return `<tr><td>${metrica.curto}</td><td><strong>${duracao(atual)}</strong></td><td>${anterior == null ? "—" : duracao(anterior)}</td><td>${formatarVariacao(variacao(atual,anterior))}</td></tr>`;
   }).join("");
-  return `<section class="pagina-relatorio capa-executiva">${cabecalhoPagina("Relatório mensal de tempos de abertura")}
+  return `<section class="pagina-relatorio capa-executiva">${cabecalhoPagina()}
     <div class="titulo-pagina"><small>Painel mensal</small><h1>Tempos de Abertura de Empresas</h1><p>${escapar(dadosAtual.rotuloPeriodo)} · relatório gerado automaticamente a partir dos dados publicados pela Redesim.</p></div>
     <div class="faixa-recorte"><strong>${escapar(localSelecionado())}</strong><span>${escapar(nomesOrgao[selecao.orgao] || selecao.orgao)}</span></div>
     <div class="cards-resumo">
@@ -226,7 +225,7 @@ function paginaMetrica(metrica,indicePagina) {
   const narrativa=posicao
     ? `Em ${escapar(dadosAtual.rotuloPeriodo)}, ${escapar(localSelecionado())} apresentou o <strong>${ordinal(posicao)} melhor resultado</strong> entre ${universo}, com ${duracao(atual)}. ${anterior==null?"Não há competência imediatamente anterior publicada para comparação.":`Na competência anterior, ocupava a ${ordinal(posicaoAnterior)} posição, com ${duracao(anterior)}; a variação do tempo foi de ${formatarVariacao(delta)}.`}`
     : `Em ${escapar(dadosAtual.rotuloPeriodo)}, o Brasil registrou ${duracao(atual)} neste indicador, considerando ${numero(grupo.processos)} processos.`;
-  return `<section class="pagina-relatorio folha-metrica">${cabecalhoPagina(`Tempos médios - ${dadosAtual.rotuloPeriodo}`)}
+  return `<section class="pagina-relatorio folha-metrica">${cabecalhoPagina()}
     <div class="titulo-pagina"><small>Indicador ${indicePagina-2} de ${metricas.length}</small><h2>${escapar(metrica.titulo)}</h2></div>
     <p class="descricao-metrica">${escapar(metrica.descricao)}</p>
     <div class="metricas-faixa"><article class="mini-card principal"><span>Resultado atual</span><strong>${duracao(atual)}</strong><small>${escapar(localSelecionado())}</small></article><article class="mini-card"><span>Processos</span><strong>${numero(grupo.processos)}</strong><small>no recorte</small></article><article class="mini-card"><span>Posição atual</span><strong>${posicao?ordinal(posicao):"Brasil"}</strong><small>${posicao?`entre ${universo}`:"referência nacional"}</small></article><article class="mini-card"><span>Variação mensal</span><strong>${formatarVariacao(delta)}</strong><small>${anterior==null?"sem comparação":`anterior: ${duracao(anterior)}`}</small></article></div>
