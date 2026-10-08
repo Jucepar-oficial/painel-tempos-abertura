@@ -128,7 +128,7 @@ function capaRelatorio() {
         <div class="capa-recorte"><span>${escapar(recorte)}</span><i></i><span>${escapar(orgao)}</span></div>
       </div>
       <footer class="capa-marcas">
-        <img class="capa-logo-jucepar" src="imagens/capas/jucepar-branca.svg" alt="Jucepar — Junta Comercial do Paraná">
+        <img class="capa-logo-jucepar" src="imagens/jucepar-logo-horizontal.png" alt="Jucepar — Junta Comercial do Paraná">
         <div class="capa-governo"><img src="imagens/capas/brasao-parana-branco.svg" alt="Brasão do Estado do Paraná"><span>Governo do Estado<br>do Paraná</span></div>
       </footer>
     </div>
