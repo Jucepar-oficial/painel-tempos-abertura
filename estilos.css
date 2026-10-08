@@ -9,7 +9,7 @@ body{margin:0;background:var(--fundo);color:var(--texto);font-family:"Segoe UI",
 button,input,select{font:inherit}.oculto{display:none!important}
 .topo{position:relative;background:#fff;border-top:7px solid var(--azul);border-bottom:4px solid var(--azul2);box-shadow:0 3px 12px #15364712}
 .topo:after{content:"";position:absolute;right:0;bottom:-4px;width:34%;height:4px;background:var(--verde)}
-.topo-interno{max-width:1440px;margin:auto;padding:14px 32px;display:grid;grid-template-columns:minmax(320px,1fr) auto;grid-template-areas:"titulo marcas" "titulo acoes";align-items:center;gap:8px 24px}
+.topo-interno{max-width:1440px;margin:auto;padding:14px 32px;display:grid;grid-template-columns:minmax(320px,1fr) auto;grid-template-areas:"titulo marcas" "acoes marcas";align-items:center;gap:8px 24px}
 .topo-titulo{grid-area:titulo}
 .topo-marcas{grid-area:marcas;display:flex;align-items:center;justify-content:flex-end;gap:18px}
 .topo-marcas img{display:block;padding:0;border:0;object-fit:contain;object-position:center}
@@ -17,35 +17,29 @@ button,input,select{font:inherit}.oculto{display:none!important}
 .topo-marcas .logo-seic{width:150px;height:58px}
 .topo-acoes {
   grid-area: acoes;
-  margin-left: auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.topo-acoes > span {
-  border: 1px solid #b9cbd5;
-  border-radius: 99px;
-  padding: 8px 13px;
-  color: var(--azul);
-  font-weight: 700;
-  font-size: .9rem;
-  white-space: nowrap;
+  justify-content: flex-start;
+  gap: 7px;
 }
 
 .botao-topo {
-  border: 1px solid var(--verde);
-  border-radius: 8px;
-  padding: 8px 12px;
+  border: 1px solid #b9cbd5;
   background: #fff;
-  color: var(--verde);
-  font-size: .82rem;
-  font-weight: 700;
+  color: var(--azul);
   text-decoration: none;
   cursor: pointer;
-  white-space: nowrap;
+}
+
+.botao-topo.botao-icone {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 .botao-topo:hover {
@@ -72,6 +66,7 @@ html:fullscreen .rodape {
 .apresentacao p,.titulo-secao p{margin:0;color:var(--muted)}
 .apresentacao aside{border-left:3px solid var(--verde);padding-left:15px;display:grid;align-content:center;min-width:210px}
 .apresentacao aside small{color:var(--muted);font-size:.8rem}.apresentacao aside strong{font-size:1.05rem;color:var(--azul)}
+.competencia-atual{display:inline-flex;width:max-content;margin-bottom:8px;border:1px solid #b9cbd5;border-radius:99px;padding:5px 10px;background:#fff;color:var(--azul);font-size:.76rem;font-weight:800;white-space:nowrap}
 .caixa,.indicador{background:#fff;border:1px solid var(--linha);border-radius:14px;box-shadow:var(--sombra)}
 .caixa{padding:21px;margin-bottom:17px}
 .titulo-secao,.cabecalho-caixa{display:flex;justify-content:space-between;align-items:center;gap:18px}
@@ -105,7 +100,7 @@ select:focus,button:focus-visible{outline:3px solid #61a9d466;outline-offset:2px
 .estado-vazio{padding:26px;text-align:center;color:var(--muted)}.indicadores>.estado-vazio{grid-column:1/-1}.estado-vazio-principal{display:grid;gap:8px;justify-items:center;background:#fff;border:1px solid var(--linha);border-left:5px solid var(--oab);border-radius:14px;box-shadow:var(--sombra)}.estado-vazio-principal strong{color:var(--azul);font-size:1.05rem}.estado-vazio-principal span{max-width:720px;line-height:1.45}.tabela-wrap td>.estado-vazio{white-space:normal}
 .conversor{max-width:980px;margin:auto;padding:30px 24px}.aviso{padding:18px 22px;margin-bottom:17px;border-left:4px solid var(--verde);background:#eaf5ee}.aviso p{margin:5px 0 0;line-height:1.5}.passo{display:grid;grid-template-columns:48px 1fr;gap:18px}.passo>span{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--azul);color:#fff;font-size:1.2rem;font-weight:800}.passo h2,.conversor .caixa>h2{margin:0 0 6px;color:var(--azul)}.passo p{margin:0 0 15px;color:var(--muted)}.linha-campos{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:460px}.arquivo{display:inline-block;border:1px dashed var(--verde);padding:15px;border-radius:8px;color:var(--verde);cursor:pointer}.arquivo input{display:none}.resultado{margin-top:18px;padding:17px;border-radius:9px;background:#eff8f2}.resultado.erro{background:#fff0f0;color:#8a2222}.resultado h3{margin:0 0 10px}.resultado dl{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.resultado dt{font-size:.72rem;color:var(--muted)}.resultado dd{margin:2px 0 0;font-size:1.2rem;font-weight:800}.resultado .acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.conversor ol{line-height:1.8}code{background:#edf1f3;padding:2px 5px;border-radius:4px}
 @media(max-width:1180px){.indicadores{grid-template-columns:repeat(3,1fr)}.ranking{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:800px){.topo-interno,.pagina{padding-left:18px;padding-right:18px}.topo-interno{grid-template-columns:1fr;grid-template-areas:"titulo" "marcas" "acoes";gap:10px}.topo-marcas,.topo-acoes{justify-content:flex-start}.topo-marcas .logo-jucepar{width:180px;height:48px}.topo-marcas .logo-seic{width:125px;height:48px}.apresentacao{flex-direction:column}.grade-filtros,.indicadores{grid-template-columns:repeat(2,1fr)}.ranking{grid-template-columns:repeat(2,1fr)}.duas-colunas{grid-template-columns:1fr}.recorte{align-items:flex-start;flex-direction:column}.cabecalho-caixa{align-items:flex-start;flex-direction:column}.acoes-cabecalho,.acoes-filtros{width:100%;justify-content:flex-start}.resultado dl{grid-template-columns:repeat(2,1fr)}.grafico-linha{padding:4px;overflow-x:auto}.grafico-linha svg{min-width:720px}.topo-acoes {
+@media(max-width:800px){.topo-interno,.pagina{padding-left:18px;padding-right:18px}.topo-interno{grid-template-columns:1fr;grid-template-areas:"titulo" "acoes" "marcas";gap:10px}.topo-marcas,.topo-acoes{justify-content:flex-start}.topo-marcas .logo-jucepar{width:180px;height:48px}.topo-marcas .logo-seic{width:125px;height:48px}.apresentacao{flex-direction:column}.grade-filtros,.indicadores{grid-template-columns:repeat(2,1fr)}.ranking{grid-template-columns:repeat(2,1fr)}.duas-colunas{grid-template-columns:1fr}.recorte{align-items:flex-start;flex-direction:column}.cabecalho-caixa{align-items:flex-start;flex-direction:column}.acoes-cabecalho,.acoes-filtros{width:100%;justify-content:flex-start}.resultado dl{grid-template-columns:repeat(2,1fr)}.grafico-linha{padding:4px;overflow-x:auto}.grafico-linha svg{min-width:720px}.topo-acoes {
   width: 100%;
   margin-left: 0;
   justify-content: flex-start;
