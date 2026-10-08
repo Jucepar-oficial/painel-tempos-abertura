@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Painel de Tempos de Abertura de Empresas da Jucepar">
   <title>PAINEL DE TEMPOS DE ABERTURA DE EMPRESAS — Jucepar</title>
-  <link rel="stylesheet" href="estilos.css?v=2.1">
+  <link rel="stylesheet" href="estilos.css?v=2.2">
 </head>
 <body>
   <header class="topo">
@@ -18,21 +18,14 @@
         <img class="logo-jucepar" src="imagens/jucepar-logo-horizontal.png" alt="Jucepar — Junta Comercial do Paraná">
         <img class="logo-seic" src="imagens/logo-seic.svg" alt="Governo do Paraná — Secretaria da Indústria, Comércio e Serviços">
       </div>
-      <div class="topo-acoes">
-  <span id="competencia-topo">Julho de 2026</span>
-
-  <button id="tela-cheia" class="botao-topo" type="button">
-    ⛶ Tela cheia
-  </button>
-
-  <a
-    class="botao-topo"
-    href="./"
-    target="_blank"
-    rel="noopener noreferrer">
-    ↗ Abrir em nova janela
-  </a>
-</div>
+      <div class="topo-acoes" aria-label="Ações de visualização">
+        <button id="tela-cheia" class="botao-topo botao-icone" type="button" title="Abrir em tela cheia" aria-label="Abrir em tela cheia">
+          <span aria-hidden="true">⛶</span>
+        </button>
+        <a class="botao-topo botao-icone" href="./" target="_blank" rel="noopener noreferrer" title="Abrir em nova janela" aria-label="Abrir em nova janela">
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -44,6 +37,7 @@
         <p>Consulte os tempos por período, tipo de órgão, unidade da Federação e município.</p>
       </div>
       <aside>
+        <span id="competencia-topo" class="competencia-atual">Julho de 2026</span>
         <small>Última atualização</small>
         <strong id="atualizacao">—</strong>
         <small id="status-dados">Carregando dados</small>
@@ -141,7 +135,7 @@
     <span>Dados agregados, sem protocolos individuais.</span>
   </footer>
 
-  <script src="painel.js?v=1.9" defer></script>
+  <script src="painel.js?v=2.0" defer></script>
   <script src="comparacao.js?v=2.0" defer></script>
 </body>
 </html>
