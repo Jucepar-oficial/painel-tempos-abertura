@@ -478,7 +478,10 @@ function atualizarBotaoTelaCheia() {
   if (!botao) return;
 
   const ativo = Boolean(elementoTelaCheia());
-  botao.textContent = ativo ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  const rotulo = ativo ? "Sair da tela cheia" : "Abrir em tela cheia";
+  botao.innerHTML = `<span aria-hidden="true">${ativo ? "✕" : "⛶"}</span>`;
+  botao.setAttribute("aria-label", rotulo);
+  botao.setAttribute("title", rotulo);
   botao.setAttribute("aria-pressed", String(ativo));
 }
 function conectarEventos() {
