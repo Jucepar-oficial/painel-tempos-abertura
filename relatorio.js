@@ -108,7 +108,18 @@ async function carregarDados(item) {
   return carregarJson(`dados/${item.arquivo}?v=${manifest.versao}`);
 }
 function cabecalhoPagina(subtitulo) {
-  return `<header class="cabecalho-relatorio"><img src="imagens/jucepar-logo-horizontal.png" alt="Jucepar"><div class="identificacao"><small>Estado do Paraná · Secretaria da Indústria, Comércio e Serviços</small><strong>${escapar(subtitulo)}</strong></div></header>`;
+  return `<header class="cabecalho-relatorio">
+    <div class="identificacao">
+      <small>Estado do Paraná</small>
+      <small>Secretaria da Indústria, Comércio e Serviços - SEIC</small>
+      <small>Junta Comercial do Paraná</small>
+      <strong>${escapar(subtitulo)}</strong>
+    </div>
+    <div class="marcas-relatorio">
+      <img class="marca-jucepar" src="imagens/jucepar-logo-horizontal.png" alt="Jucepar — Junta Comercial do Paraná">
+      <img class="marca-seic" src="imagens/logo-seic.svg" alt="Governo do Paraná — Secretaria da Indústria, Comércio e Serviços">
+    </div>
+  </header>`;
 }
 function rodapePagina(numeroPagina, totalPaginas) {
   return `<footer class="rodape-pagina"><span>Fonte: Redesim - Estatísticas CNPJ · Dados agregados</span><span>${numeroPagina}/${totalPaginas}</span></footer>`;
@@ -129,7 +140,7 @@ function capaRelatorio() {
       </div>
       <footer class="capa-marcas">
         <img class="capa-logo-jucepar" src="imagens/jucepar-logo-horizontal.png" alt="Jucepar — Junta Comercial do Paraná">
-        <div class="capa-governo"><img src="imagens/capas/brasao-parana-branco.svg" alt="Brasão do Estado do Paraná"><span>Governo do Estado<br>do Paraná</span></div>
+        <img class="capa-logo-seic" src="imagens/logo-seic.svg" alt="Governo do Paraná — Secretaria da Indústria, Comércio e Serviços">
       </footer>
     </div>
   </section>`;
