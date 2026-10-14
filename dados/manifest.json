@@ -16,6 +16,11 @@
       "arquivo": "tempos-2019-12.json"
     },
     {
+      "id": "2020-12",
+      "rotulo": "Dezembro de 2020",
+      "arquivo": "tempos-2020-12.json"
+    },
+    {
       "id": "2023-01",
       "rotulo": "Janeiro de 2023",
       "arquivo": "tempos-2023-01.json"
