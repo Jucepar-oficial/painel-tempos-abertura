@@ -2,7 +2,7 @@
   "versao": 2,
   "atualizadoEm": "14/10/2026",
   "avisos": [
-    "Os dados de janeiro a abril de 2026 serão incorporados gradualmente ao painel após validação."
+    "Os dados de dezembro/2025 a abril/2026 foram disponibilizados na Redesim em outubro/2026."
   ],
   "periodos": [
     {
@@ -184,6 +184,11 @@
       "id": "2025-12",
       "rotulo": "Dezembro de 2025",
       "arquivo": "tempos-2025-12.json"
+    },
+    {
+      "id": "2026-01",
+      "rotulo": "Janeiro de 2026",
+      "arquivo": "tempos-2026-01.json"
     },
     {
       "id": "2026-05",
