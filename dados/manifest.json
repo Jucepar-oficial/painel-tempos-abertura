@@ -6,6 +6,11 @@
   ],
   "periodos": [
     {
+      "id": "2019-01",
+      "rotulo": "Janeiro de 2019",
+      "arquivo": "tempos-2019-01.json"
+    },
+    {
       "id": "2019-12",
       "rotulo": "Dezembro de 2019",
       "arquivo": "tempos-2019-12.json"
