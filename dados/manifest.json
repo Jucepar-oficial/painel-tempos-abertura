@@ -201,6 +201,11 @@
       "arquivo": "tempos-2026-03.json"
     },
     {
+      "id": "2026-04",
+      "rotulo": "Abril de 2026",
+      "arquivo": "tempos-2026-04.json"
+    },
+    {
       "id": "2026-05",
       "rotulo": "Maio de 2026",
       "arquivo": "tempos-2026-05.json"
