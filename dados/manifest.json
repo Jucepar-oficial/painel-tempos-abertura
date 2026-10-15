@@ -51,6 +51,36 @@
       "arquivo": "tempos-2021-06.json"
     },
     {
+      "id": "2021-07",
+      "rotulo": "Julho de 2021",
+      "arquivo": "tempos-2021-07.json"
+    },
+    {
+      "id": "2021-08",
+      "rotulo": "Agosto de 2021",
+      "arquivo": "tempos-2021-08.json"
+    },
+    {
+      "id": "2021-09",
+      "rotulo": "Setembro de 2021",
+      "arquivo": "tempos-2021-09.json"
+    },
+    {
+      "id": "2021-10",
+      "rotulo": "Outubro de 2021",
+      "arquivo": "tempos-2021-10.json"
+    },
+    {
+      "id": "2021-11",
+      "rotulo": "Novembro de 2021",
+      "arquivo": "tempos-2021-11.json"
+    },
+    {
+      "id": "2021-12",
+      "rotulo": "Dezembro de 2021",
+      "arquivo": "tempos-2021-12.json"
+    },
+    {
       "id": "2022-01",
       "rotulo": "Janeiro de 2022",
       "arquivo": "tempos-2022-01.json"
