@@ -5,14 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Conversor mensal do Painel de Tempos de Abertura de Empresas">
   <title>Conversor mensal — Tempos de Abertura</title>
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilos.css?v=2.2">
 </head>
 <body>
-  <header class="topo"><div class="topo-interno">
-    <img src="imagens/jucepar-logo-horizontal.png" alt="Jucepar">
-    <div><small>Ferramenta institucional</small><h1>Conversor mensal — Tempos de Abertura</h1></div>
-    <a class="botao" href="index.html">Abrir painel</a>
-  </div></header>
+  <header class="topo">
+    <div class="topo-interno">
+      <div class="topo-titulo">
+        <small>Ferramenta institucional</small>
+        <h1>Conversor mensal — Tempos de Abertura</h1>
+      </div>
+      <div class="topo-marcas" aria-label="Identidade institucional">
+        <img class="logo-jucepar" src="imagens/jucepar-logo-horizontal.png" alt="Jucepar — Junta Comercial do Paraná">
+      </div>
+      <div class="topo-acoes">
+        <a class="botao" href="index.html">Abrir painel</a>
+      </div>
+    </div>
+  </header>
   <main class="conversor">
     <section class="aviso"><strong>Processamento local</strong><p>A planilha é processada neste navegador e não é enviada à internet. O arquivo gerado contém somente dados agregados, sem os números dos protocolos.</p></section>
     <section class="caixa passo"><span>1</span><div><h2>Informe a competência</h2><p>Selecione o mês correspondente à data de deferimento dos processos. Estão disponíveis os anos de 2019 a 2026.</p><div class="linha-campos"><label>Ano<input id="conv-ano" type="number" min="2019" max="2026" value="2025"></label><label>Mês<select id="conv-mes"></select></label></div></div></section>
