@@ -51,6 +51,36 @@
       "arquivo": "tempos-2022-06.json"
     },
     {
+      "id": "2022-07",
+      "rotulo": "Julho de 2022",
+      "arquivo": "tempos-2022-07.json"
+    },
+    {
+      "id": "2022-08",
+      "rotulo": "Agosto de 2022",
+      "arquivo": "tempos-2022-08.json"
+    },
+    {
+      "id": "2022-09",
+      "rotulo": "Setembro de 2022",
+      "arquivo": "tempos-2022-09.json"
+    },
+    {
+      "id": "2022-10",
+      "rotulo": "Outubro de 2022",
+      "arquivo": "tempos-2022-10.json"
+    },
+    {
+      "id": "2022-11",
+      "rotulo": "Novembro de 2022",
+      "arquivo": "tempos-2022-11.json"
+    },
+    {
+      "id": "2022-12",
+      "rotulo": "Dezembro de 2022",
+      "arquivo": "tempos-2022-12.json"
+    },
+    {
       "id": "2023-01",
       "rotulo": "Janeiro de 2023",
       "arquivo": "tempos-2023-01.json"
