@@ -16,6 +16,61 @@
       "arquivo": "tempos-2019-12.json"
     },
     {
+      "id": "2020-01",
+      "rotulo": "Janeiro de 2020",
+      "arquivo": "tempos-2020-01.json"
+    },
+    {
+      "id": "2020-02",
+      "rotulo": "Fevereiro de 2020",
+      "arquivo": "tempos-2020-02.json"
+    },
+    {
+      "id": "2020-03",
+      "rotulo": "Março de 2020",
+      "arquivo": "tempos-2020-03.json"
+    },
+    {
+      "id": "2020-04",
+      "rotulo": "Abril de 2020",
+      "arquivo": "tempos-2020-04.json"
+    },
+    {
+      "id": "2020-05",
+      "rotulo": "Maio de 2020",
+      "arquivo": "tempos-2020-05.json"
+    },
+    {
+      "id": "2020-06",
+      "rotulo": "Junho de 2020",
+      "arquivo": "tempos-2020-06.json"
+    },
+    {
+      "id": "2020-07",
+      "rotulo": "Julho de 2020",
+      "arquivo": "tempos-2020-07.json"
+    },
+    {
+      "id": "2020-08",
+      "rotulo": "Agosto de 2020",
+      "arquivo": "tempos-2020-08.json"
+    },
+    {
+      "id": "2020-09",
+      "rotulo": "Setembro de 2020",
+      "arquivo": "tempos-2020-09.json"
+    },
+    {
+      "id": "2020-10",
+      "rotulo": "Outubro de 2020",
+      "arquivo": "tempos-2020-10.json"
+    },
+    {
+      "id": "2020-11",
+      "rotulo": "Novembro de 2020",
+      "arquivo": "tempos-2020-11.json"
+    },
+    {
       "id": "2020-12",
       "rotulo": "Dezembro de 2020",
       "arquivo": "tempos-2020-12.json"
