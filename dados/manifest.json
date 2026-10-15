@@ -1,6 +1,6 @@
 {
   "versao": 2,
-  "atualizadoEm": "14/10/2026",
+  "atualizadoEm": "15/10/2026",
   "avisos": [
     "Os dados de dezembro/2025 a abril/2026 foram disponibilizados na Redesim em outubro/2026."
   ],
@@ -19,6 +19,16 @@
       "id": "2020-12",
       "rotulo": "Dezembro de 2020",
       "arquivo": "tempos-2020-12.json"
+    },
+    {
+      "id": "2022-01",
+      "rotulo": "Janeiro de 2022",
+      "arquivo": "tempos-2022-01.json"
+    },
+    {
+      "id": "2022-02",
+      "rotulo": "Fevereiro de 2022",
+      "arquivo": "tempos-2022-02.json"
     },
     {
       "id": "2023-01",
