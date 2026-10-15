@@ -11,6 +11,56 @@
       "arquivo": "tempos-2019-01.json"
     },
     {
+      "id": "2019-02",
+      "rotulo": "Fevereiro de 2019",
+      "arquivo": "tempos-2019-02.json"
+    },
+    {
+      "id": "2019-03",
+      "rotulo": "Março de 2019",
+      "arquivo": "tempos-2019-03.json"
+    },
+    {
+      "id": "2019-04",
+      "rotulo": "Abril de 2019",
+      "arquivo": "tempos-2019-04.json"
+    },
+    {
+      "id": "2019-05",
+      "rotulo": "Maio de 2019",
+      "arquivo": "tempos-2019-05.json"
+    },
+    {
+      "id": "2019-06",
+      "rotulo": "Junho de 2019",
+      "arquivo": "tempos-2019-06.json"
+    },
+    {
+      "id": "2019-07",
+      "rotulo": "Julho de 2019",
+      "arquivo": "tempos-2019-07.json"
+    },
+    {
+      "id": "2019-08",
+      "rotulo": "Agosto de 2019",
+      "arquivo": "tempos-2019-08.json"
+    },
+    {
+      "id": "2019-09",
+      "rotulo": "Setembro de 2019",
+      "arquivo": "tempos-2019-09.json"
+    },
+    {
+      "id": "2019-10",
+      "rotulo": "Outubro de 2019",
+      "arquivo": "tempos-2019-10.json"
+    },
+    {
+      "id": "2019-11",
+      "rotulo": "Novembro de 2019",
+      "arquivo": "tempos-2019-11.json"
+    },
+    {
       "id": "2019-12",
       "rotulo": "Dezembro de 2019",
       "arquivo": "tempos-2019-12.json"
