@@ -31,6 +31,26 @@
       "arquivo": "tempos-2022-02.json"
     },
     {
+      "id": "2022-03",
+      "rotulo": "Março de 2022",
+      "arquivo": "tempos-2022-03.json"
+    },
+    {
+      "id": "2022-04",
+      "rotulo": "Abril de 2022",
+      "arquivo": "tempos-2022-04.json"
+    },
+    {
+      "id": "2022-05",
+      "rotulo": "Maio de 2022",
+      "arquivo": "tempos-2022-05.json"
+    },
+    {
+      "id": "2022-06",
+      "rotulo": "Junho de 2022",
+      "arquivo": "tempos-2022-06.json"
+    },
+    {
       "id": "2023-01",
       "rotulo": "Janeiro de 2023",
       "arquivo": "tempos-2023-01.json"
